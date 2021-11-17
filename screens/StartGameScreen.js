@@ -18,8 +18,8 @@ const StartGameScreen = () => {
 				<Card style={styles.inputContainer}>
 					<View style={styles.inputContainer}>
 						<Text>Select a Number</Text>
-						<Input style={styles.input} blurOnSubmit autoCapitalize="none" autoCorrent={false}
-									 keyboardType='number-pad' onChangText={numberInputHandler} value={enteredValue}/>
+						<Input style={styles.input} blurOnSubmit autoCapitalize="none" autoCorrect={false}
+									 keyboardType='number-pad' maxLength={2} onChangeText={numberInputHandler} value={enteredValue}/>
 						<View style={styles.buttonContainer}>
 							<View style={styles.button}><Button title='RESET' onPress={() => {
 							}} color={Colors.accent}/></View>
