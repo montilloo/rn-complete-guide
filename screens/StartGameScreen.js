@@ -1,26 +1,35 @@
-import React from "react";
-import {Button, Text, View, StyleSheet} from "react-native";
+import React, { useState } from "react";
+import {Button, StyleSheet, Text, TouchableWithoutFeedback, View, Keyboard} from "react-native";
 import Card from "../components/Card";
 import Input from "../components/Input";
 import Colors from "../constants/colors";
 
 const StartGameScreen = () => {
+	const [enteredValue, setEnteredValue] = useState('');
+
+	const numberInputHandler = (inputText)	=> {
+		setEnteredValue(inputText.replace(/[^0-9]/g, ''));
+	};
+
 	return (
-		<View style={styles.screen}>
-			<Text style={styles.title}>Start a New Game!</Text>
-			<Card style={styles.inputContainer}>
-				<View style={styles.inputContainer}>
-					<Text>Select a Number</Text>
-					<Input style={styles.input} blurOnSubmit autoCapitalize="none" autoCorrent={false} keyboardType='number-pad'/>
-					<View style={styles.buttonContainer}>
-						<View style={styles.button}><Button title='RESET' onPress={() => {
-						}} color={Colors.accent}/></View>
-						<View style={styles.button}><Button title='CONFIRM' onPress={() => {
-						}} color={Colors.primary}/></View>
+		<TouchableWithoutFeedback onPress={() => {Keyboard.dismiss()}}>
+			<View style={styles.screen}>
+				<Text style={styles.title}>Start a New Game!</Text>
+				<Card style={styles.inputContainer}>
+					<View style={styles.inputContainer}>
+						<Text>Select a Number</Text>
+						<Input style={styles.input} blurOnSubmit autoCapitalize="none" autoCorrent={false}
+									 keyboardType='number-pad' onChangText={numberInputHandler} value={enteredValue}/>
+						<View style={styles.buttonContainer}>
+							<View style={styles.button}><Button title='RESET' onPress={() => {
+							}} color={Colors.accent}/></View>
+							<View style={styles.button}><Button title='CONFIRM' onPress={() => {
+							}} color={Colors.primary}/></View>
+						</View>
 					</View>
-				</View>
-			</Card>
-		</View>
+				</Card>
+			</View>
+		</TouchableWithoutFeedback>
 	);
 }
 
