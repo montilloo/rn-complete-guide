@@ -5,6 +5,8 @@ import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
 import Colors from "../constants/colors";
 
+import DefaultStyles from "../constants/default-styles";
+
 const StartGameScreen = props => {
 	const [enteredValue, setEnteredValue] = useState('');
 	const [confirmed, setConfirmed] = useState(false);
@@ -50,10 +52,10 @@ const StartGameScreen = props => {
 			Keyboard.dismiss()
 		}}>
 			<View style={styles.screen}>
-				<Text style={styles.title}>Start a New Game!</Text>
+				<Text style={{ ...styles.title, ...DefaultStyles.title }}>Start a New Game!</Text>
 				<Card style={styles.inputContainer}>
 					<View style={styles.inputContainer}>
-						<Text>Select a Number</Text>
+						<Text style={{...DefaultStyles.bodyText }}>Select a Number</Text>
 						<Input style={styles.input} blurOnSubmit autoCapitalize="none" autoCorrect={false}
 									 keyboardType='number-pad' maxLength={2} onChangeText={numberInputHandler} value={enteredValue}/>
 						<View style={styles.buttonContainer}>
