@@ -21,3 +21,7 @@ useEffect(() => {
 如何加载字体：
 https://docs.expo.dev/guides/using-custom-fonts/
 
+### 第4章第27节
+
+对于从网络上加载的图片，使用`<Image />`组件时，务必设置图像的宽度和高度。第一次加载后，图像将被缓存，后续使用几乎是瞬时的。
+
