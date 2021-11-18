@@ -15,3 +15,9 @@ useEffect(() => {
 
 ```
 默认情况下，useEffect中第一个参数在该组件的每个渲染周期之后运行。所以每次它被渲染了，这个函数被执行了。不是之前，不是同时，而是之后。
+
+### 第4章第22节
+
+如何加载字体：
+https://docs.expo.dev/guides/using-custom-fonts/
+
