@@ -45,3 +45,31 @@ https://docs.expo.dev/guides/using-custom-fonts/
 ### 第5章第8节
 
 KeyboardAvoidingView组件 keyboardVerticalOffset属性，控制键盘的垂直偏移。
+
+### 第5章第9节
+
+你从尺寸中得到的任何东西都应该考虑方向的变化，当方向改变时应该重新计算
+
+```js
+useEffect(() => {
+    const subscription = Dimensions.addEventListener("change", () => {
+        setButtonWidth(Dimensions.get("window").width / 4);
+    });
+    return () => subscription.remove();
+});
+```
+如果不将这段代码放在useEffect中，总是添加一个新的事件监听器是不合理的。
+
+`useEffect`在组件重新渲染时执行的代码，清除旧的监听器，设置一个新的监听器。总是只有一个正在运行的监听器。
+
+上面的写法来自最新的官方文档，但是不稳定，下面的废弃的写法可正常运行：
+
+```js
+useEffect(() => {
+    const updateLayout = () => {
+        setButtonWidth(Dimensions.get("window").width / 4);
+    };
+    Dimensions.addEventListener("change", updateLayout);
+    return Dimensions.removeEventListener("change", updateLayout);
+});
+```
