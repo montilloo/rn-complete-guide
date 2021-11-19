@@ -73,3 +73,34 @@ useEffect(() => {
     return Dimensions.removeEventListener("change", updateLayout);
 });
 ```
+
+### 第5章第15节
+
+根据不同的平台加载特定的文件
+
+文件命名：
+
+```js
+
+MainButton.ios.js // ios 加载
+
+MainButton.android.js // android加载
+```
+
+文件引入：
+
+```js
+import MainButton from "./components/MainButton";
+```
+
+以下引入是错误的：
+
+```js
+import MainButton from "./components/MainButton.ios";
+
+// 或者
+
+import MainButton from "./components/MainButton.android";
+
+```
+
