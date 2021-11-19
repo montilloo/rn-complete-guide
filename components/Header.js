@@ -6,22 +6,30 @@ import DefaultStyles from "../constants/default-styles";
 
 const Header = props => {
 	return (
-		<View style={styles.header}>
+		<View style={{ ...styles.headerBase, ...Platform.select({
+				ios: styles.headerIOS,
+				android: styles.headerAndroid
+			})}}>
 			<Text style={{ ...styles.headerTitle, ...DefaultStyles.title }}>{props.title}</Text>
 		</View>
 	);
 }
 
 const styles = StyleSheet.create({
-	header: {
+	headerBase: {
 		width: '100%',
 		height: 90,
 		paddingTop: 36,
-		backgroundColor: Platform.OS === "android" ? Colors.primary : "white",
 		justifyContent: "center",
-		alignItems: 'center',
-		borderBottomWidth: Platform.OS === "android" ? 0 : 1,
-		borderBottomColor: Platform.OS === "android" ? "transparent" : "#CCC"
+		alignItems: 'center'
+	},
+	headerIOS: {
+		backgroundColor:"white",
+		borderBottomWidth: 1,
+		borderBottomColor: "#CCC"
+	},
+	headerAndroid: {
+		backgroundColor: Colors.primary,
 	},
 	headerTitle: {
 		color: Platform.OS === "android" ? 'white' : Colors.primary,
