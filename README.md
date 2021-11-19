@@ -31,3 +31,17 @@ https://docs.expo.dev/guides/using-custom-fonts/
 对于React Native中的文本组件，还有一个额外的重要行为，那就是它没有使用Flexbox, View使用Flexbox 
 
 文本之间添加空格的写法：`{' '}`
+
+### 第5章第7节
+
+`app.json`文件，`orientation`属性可以控制屏幕竖向或横向
+
+|orientation| description |
+|:----:|:----:|
+|default| 默认值，可以旋转|
+|portrait| 竖向 |
+|landscape| 横向 |
+
+### 第5章第8节
+
+KeyboardAvoidingView组件 keyboardVerticalOffset属性，控制键盘的垂直偏移。
