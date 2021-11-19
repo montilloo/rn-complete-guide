@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Alert, Button, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View} from "react-native";
+import {Alert, Button, Keyboard, StyleSheet, Text, TouchableWithoutFeedback, View, Dimensions} from "react-native";
 import Card from "../components/Card";
 import Input from "../components/Input";
 import NumberContainer from "../components/NumberContainer";
@@ -98,7 +98,8 @@ const styles = StyleSheet.create(
 				justifyContent: "space-between"
 			},
 			button: {
-				width: 100
+				// width: 100
+				width: Dimensions.get('window').width / 4
 			},
 			input: {
 				width: 50,
